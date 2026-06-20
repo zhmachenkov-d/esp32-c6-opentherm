@@ -6,6 +6,9 @@
       "DOCKER_TAG": "release-v5.4"
     }
   },
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
   "customizations": {
     "vscode": {
       "settings": {

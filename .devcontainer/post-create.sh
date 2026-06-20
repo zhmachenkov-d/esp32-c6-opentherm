@@ -11,3 +11,9 @@ fi
 
 echo "ESP-IDF: $(idf.py --version)"
 echo "Default target: esp32c6 (set via idf.py set-target when CMakeLists.txt exists)"
+
+if command -v gh >/dev/null 2>&1; then
+  echo "GitHub CLI: $(gh --version)"
+else
+  echo "GitHub CLI: not installed (rebuild dev container to apply features)"
+fi
