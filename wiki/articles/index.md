@@ -24,3 +24,11 @@ OpenTherm protocol, boiler communication, and HVAC control for this project.
 |---------|---------|---------|
 | [OpenTherm Protocol v2.2](opentherm/opentherm-protocol-v2-2.md) | OT/+ frame format, timing, mandatory data IDs, status bits | 2026-06-20 |
 | [Melnyk OpenTherm Library](opentherm/melnyk-opentherm-library.md) | Arduino/ESP32 OpenTherm v2.2 library; interrupt-driven master API | 2026-06-20 |
+
+## zigbee
+
+Zigbee cluster definitions and HVAC device models for ESP32-C6 802.15.4.
+
+| Article | Summary | Updated |
+|---------|---------|---------|
+| [Zigbee Cluster Library (Rev 8)](zigbee/zigbee-cluster-library.md) | ZCL cluster model, HVAC Ch.6, Thermostat 0x0201 attributes | 2026-06-20 |

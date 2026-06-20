@@ -125,6 +125,7 @@ Full ID map: data classes 1–8 in the specification (IDs 0–127 open area).
 ## See Also
 
 - [Melnyk OpenTherm Library](melnyk-opentherm-library.md) — Arduino/ESP32 reference implementation
+- [Zigbee Cluster Library (Rev 8)](../zigbee/zigbee-cluster-library.md) — alternative HVAC control path on ESP32-C6
 - [ESP-IDF Get Started (ESP32-C6)](../esp-idf/esp32-c6-get-started.md)
 - [WeAct ESP32-C6-A Dev Board](../esp32/weact-esp32-c6-a-dev-board.md)
 - Full spec PDF: [Opentherm Protocol v2-2.pdf](https://ihormelnyk.com/Content/Pages/opentherm_library/Opentherm%20Protocol%20v2-2.pdf)

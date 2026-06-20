@@ -21,6 +21,8 @@ This is the master-branch (latest) documentation; stable releases have separate 
 
 Built-in security hardware and multiple peripherals. Espressif positions ESP-IDF for IoT apps with Wi-Fi, Bluetooth, and power management.
 
+For Zigbee cluster definitions (HVAC thermostat, etc.), see [Zigbee Cluster Library (Rev 8)](../zigbee/zigbee-cluster-library.md).
+
 ## Prerequisites
 
 ### Hardware

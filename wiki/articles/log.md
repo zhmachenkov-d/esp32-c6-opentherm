@@ -9,3 +9,7 @@
 
 ## [2026-06-20] ingest | Melnyk OpenTherm Library
 - Updated: OpenTherm Protocol v2.2
+
+## [2026-06-20] ingest | Zigbee Cluster Library (Rev 8)
+- Updated: ESP-IDF Get Started (ESP32-C6)
+- Updated: OpenTherm Protocol v2.2
