@@ -21,7 +21,8 @@
       },
       "extensions": [
         "espressif.esp-idf-extension",
-        "llvm-vs-code-extensions.vscode-clangd"
+        "llvm-vs-code-extensions.vscode-clangd",
+        "github.vscode-pull-request-github"
       ]
     }
   },
