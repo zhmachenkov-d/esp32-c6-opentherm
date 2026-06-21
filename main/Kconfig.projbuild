@@ -1,0 +1,17 @@
+menu "OpenTherm Bridge"
+
+config OT_IN_GPIO
+    int "OpenTherm adapter input GPIO (interrupt)"
+    range 0 23
+    default 12
+    help
+        GPIO connected to the OpenTherm adapter input (interrupt-capable).
+
+config OT_OUT_GPIO
+    int "OpenTherm adapter output GPIO"
+    range 0 23
+    default 13
+    help
+        GPIO connected to the OpenTherm adapter output.
+
+endmenu

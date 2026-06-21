@@ -6,6 +6,9 @@
       "DOCKER_TAG": "release-v5.4"
     }
   },
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
   "customizations": {
     "vscode": {
       "settings": {
@@ -18,7 +21,7 @@
       },
       "extensions": [
         "espressif.esp-idf-extension",
-        "ms-vscode.cpptools"
+        "llvm-vs-code-extensions.vscode-clangd"
       ]
     }
   },
@@ -26,6 +29,11 @@
   "runArgs": [
     "--privileged",
     "--volume=/dev:/dev",
-    "--volume=/etc/timezone:/etc/timezone:ro"
+    "--volume=/etc/timezone:/etc/timezone:ro",
+    "--env-file",
+    "${localWorkspaceFolder}/.env"
+  ],
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
   ]
 }
