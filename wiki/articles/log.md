@@ -1,5 +1,9 @@
 # Wiki Log
 
+## [2026-06-21] ingest | WeAct ESP32-C6-A Dev Board (schematic)
+
+## [2026-06-21] ingest | WeAct ESP32-C6-A Dev Board
+
 ## [2026-06-21] ingest | ESP32-C6 Technical Reference Manual
 - Updated: ESP32-C6 Series Datasheet
 - Updated: ESP32-C6 Hardware Design Guidelines
