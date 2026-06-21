@@ -8,6 +8,17 @@ OpenTherm-to-Zigbee bridge for the WeAct ESP32-C6-A. The firmware joins an exist
 - OpenTherm adapter wired to **GPIO12** (in) and **GPIO13** (out) by default
 - OpenTherm two-wire connection to a compatible boiler
 
+## Dev container secrets
+
+Before the first dev container rebuild (or when setting up a new clone):
+
+1. `cp .env.example .env`
+2. Set `GH_TOKEN` in `.env` (GitHub personal access token with repo scope)
+3. Rebuild the dev container (**Dev Containers: Rebuild Container**)
+4. Verify: `gh auth status` and `git push`
+
+The `.env` file is gitignored; never commit secrets.
+
 ## Build
 
 From the dev container (ESP-IDF 5.4):

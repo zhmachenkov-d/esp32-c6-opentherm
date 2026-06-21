@@ -11,6 +11,10 @@ CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
 
+# Local dev secrets (dev container)
+.env
+!.env.example
+
 # ESP-IDF
 build/
 sdkconfig
