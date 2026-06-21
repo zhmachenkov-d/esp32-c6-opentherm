@@ -6,7 +6,10 @@ ESP32 hardware, development boards, and related documentation for this project.
 
 | Article | Summary | Updated |
 |---------|---------|---------|
-| [WeAct ESP32-C6-A Dev Board](esp32/weact-esp32-c6-a-dev-board.md) | WeActStudio ESP32-C6-A board; pin-compatible with ESP32-C6-DevKitC-1-N4/8 | 2026-06-20 |
+| [ESP32-C6 Series Datasheet](esp32/esp32-c6-datasheet.md) | SoC specs: RISC-V, Wi-Fi 6, BLE 5, Zigbee/Thread, peripherals, power | 2026-06-21 |
+| [ESP32-C6 Technical Reference Manual](esp32/esp32-c6-technical-reference-manual.md) | Register-level TRM: memory map, GPIO matrix, TWAI, peripheral addresses | 2026-06-21 |
+| [ESP32-C6 Hardware Design Guidelines](esp32/esp32-c6-hardware-design-guidelines.md) | Schematic checklist, PCB layout, RF tuning, boot strapping, flash/download | 2026-06-21 |
+| [WeAct ESP32-C6-A Dev Board](esp32/weact-esp32-c6-a-dev-board.md) | WeActStudio ESP32-C6-A board; pin-compatible with ESP32-C6-DevKitC-1-N4/8 | 2026-06-21 |
 
 ## esp-idf
 
@@ -14,7 +17,7 @@ ESP-IDF toolchain, installation, and build workflow for ESP32-C6.
 
 | Article | Summary | Updated |
 |---------|---------|---------|
-| [ESP-IDF Get Started (ESP32-C6)](esp-idf/esp32-c6-get-started.md) | EIM install, toolchain, IDE/CLI build, flash, and monitor | 2026-06-20 |
+| [ESP-IDF Get Started (ESP32-C6)](esp-idf/esp32-c6-get-started.md) | EIM install, toolchain, IDE/CLI build, flash, and monitor | 2026-06-21 |
 
 ## opentherm
 

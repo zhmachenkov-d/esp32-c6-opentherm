@@ -1,7 +1,7 @@
 # WeAct ESP32-C6-A Dev Board
 
-> Sources: WeActStudio, Unknown
-> Raw: [weactstudio-esp32-c6-a](../../raw/esp32/weactstudio-esp32-c6-a.md)
+> Sources: WeActStudio, Unknown; Espressif Systems, 2023 (v1.0 HW guidelines)
+> Raw: [weactstudio-esp32-c6-a](../../raw/esp32/weactstudio-esp32-c6-a.md); [esp32-c6-datasheet-en](../../raw/esp32/esp32-c6-datasheet-en.md)
 
 ## Overview
 
@@ -23,9 +23,9 @@ The `Doc/` folder includes Espressif reference PDFs (English copies in-repo):
 
 | Document | In-repo file |
 |----------|--------------|
-| Datasheet | `esp32-c6_datasheet_en.pdf` |
-| Technical Reference Manual | `esp32-c6_technical_reference_manual_en.pdf` |
-| Hardware Design Guidelines | `esp32-c6_hardware_design_guidelines_en.pdf` |
+| Datasheet | `esp32-c6_datasheet_en.pdf` — see [ESP32-C6 Series Datasheet](esp32-c6-datasheet.md) |
+| Technical Reference Manual | `esp32-c6_technical_reference_manual_en.pdf` — see [ESP32-C6 Technical Reference Manual](esp32-c6-technical-reference-manual.md) |
+| Hardware Design Guidelines | `esp32-c6_hardware_design_guidelines_en.pdf` — see [ESP32-C6 Hardware Design Guidelines](esp32-c6-hardware-design-guidelines.md) |
 
 The `Doc/README.md` also links to Chinese PDFs and upstream Espressif pages.
 
@@ -41,5 +41,8 @@ This repo (`esp32-c6-opentherm`) targets ESP32-C6 hardware. The WeAct ESP32-C6-A
 
 ## See Also
 
+- [ESP32-C6 Technical Reference Manual](esp32-c6-technical-reference-manual.md)
+- [ESP32-C6 Hardware Design Guidelines](esp32-c6-hardware-design-guidelines.md)
+- [ESP32-C6 Series Datasheet](esp32-c6-datasheet.md)
 - [ESP-IDF Get Started (ESP32-C6)](../esp-idf/esp32-c6-get-started.md)
 - Upstream repo: [WeActStudio/WeActStudio.ESP32-C6-A](https://github.com/WeActStudio/WeActStudio.ESP32-C6-A)

@@ -21,7 +21,7 @@ This is the master-branch (latest) documentation; stable releases have separate 
 
 Built-in security hardware and multiple peripherals. Espressif positions ESP-IDF for IoT apps with Wi-Fi, Bluetooth, and power management.
 
-For Zigbee cluster definitions (HVAC thermostat, etc.), see [Zigbee Cluster Library (Rev 8)](../zigbee/zigbee-cluster-library.md).
+For full SoC specifications (memory, peripherals, power), see [ESP32-C6 Series Datasheet](../esp32/esp32-c6-datasheet.md). For Zigbee cluster definitions (HVAC thermostat, etc.), see [Zigbee Cluster Library (Rev 8)](../zigbee/zigbee-cluster-library.md).
 
 ## Prerequisites
 
@@ -72,6 +72,7 @@ eim purge             # all versions
 
 ## See Also
 
+- [ESP32-C6 Series Datasheet](../esp32/esp32-c6-datasheet.md) — SoC hardware reference
 - [WeAct ESP32-C6-A Dev Board](../esp32/weact-esp32-c6-a-dev-board.md) — project hardware
 - Upstream: [Get Started — ESP32-C6](https://docs.espressif.com/projects/esp-idf/en/latest/esp32c6/get-started/)
 - ESP-IDF repo: https://github.com/espressif/esp-idf
