@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+if [ -d /ssh ]; then
+  mkdir -p /root/.ssh
+  cp -r /ssh/. /root/.ssh/
+  chown -R root:root /root/.ssh
+  chmod 700 /root/.ssh
+  find /root/.ssh -type f -exec chmod 600 {} \;
+fi
+
 git config --global --add safe.directory "${containerWorkspaceFolder:-/workspaces/esp32-c6-opentherm}"
 
 source /opt/esp/idf/export.sh

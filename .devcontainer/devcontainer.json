@@ -26,6 +26,9 @@
       ]
     }
   },
+  "mounts": [
+      "source=${localEnv:HOME}/.ssh,target=/ssh,type=bind"
+  ],
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "runArgs": [
     "--privileged",
