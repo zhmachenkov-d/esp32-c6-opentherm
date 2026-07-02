@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "okf-tools"
 version = "0.1.0"
-description = "Validate, index, and export Open Knowledge Format bundles"
+description = "Validate, index, export, visualize, and lint Open Knowledge Format bundles"
 requires-python = ">=3.10"
 dependencies = [
     "PyYAML>=6.0",
@@ -17,3 +17,6 @@ okf = "okf.cli:main"
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["okf*"]
+
+[tool.setuptools.package-data]
+okf = ["viewer/templates/*", "viewer/static/*"]

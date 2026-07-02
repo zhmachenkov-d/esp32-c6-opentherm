@@ -21,7 +21,7 @@ okf validate knowledge/
 |-------|------|------|
 | Raw source | `wiki/raw/` | Immutable inputs. Read only. |
 | Knowledge bundle | `knowledge/` | Compiled OKF concepts, `index.md`, `log.md`. You own this. |
-| Tooling | `tools/okf/` | `validate`, `index`, `export` (MCP later). |
+| Tooling | `tools/okf/` | `validate`, `index`, `export`, `visualize`, `lint` (MCP later). |
 | Schema | this file | Ingest, query, lint rules. |
 
 ### Bundle layout
@@ -127,19 +127,16 @@ Create a new concept (often type `Reference` or `Playbook`) with the synthesized
 
 ## Lint
 
-### Deterministic (auto-fix)
+Run deterministic checks in tooling; the skill handles heuristic review.
 
-- Run `okf validate knowledge/` and fix errors.
-- Run `okf index knowledge/` if indexes are stale.
-- Fix bundle-relative links that point to wrong paths when exactly one match exists.
+```bash
+okf lint knowledge/
+okf lint knowledge/ --fix
+```
 
-### Heuristic (report only)
+**Tooling (`okf lint`)** — validate conformance, raw provenance, citation mirroring, index staleness, broken links; `--fix` regenerates stale indexes and rewrites links when exactly one basename match exists.
 
-- Contradictions across concepts
-- Stale claims superseded by newer raw sources
-- Orphan concepts with no inbound links
-- Missing G2 splits for heavily cross-referenced topics
-- Concepts mentioned in prose but lacking their own page
+**Skill (heuristic, report only)** — contradictions, stale claims vs newer raw sources, orphan concepts, missing G2 splits, concepts mentioned in prose without their own page.
 
 Append to `knowledge/log.md`:
 
@@ -157,3 +154,13 @@ okf export knowledge/ -o dist/
 ```
 
 Produces `dist/knowledge.tar.gz` and `dist/knowledge-manifest.json`.
+
+## Visualize
+
+Generate a self-contained interactive graph viewer (Marie-style OKF viz):
+
+```bash
+okf visualize knowledge/
+```
+
+Produces `dist/knowledge-viz.html` by default. Open in a browser for force-directed graph navigation, concept detail panel, search, type filter, and backlinks.
