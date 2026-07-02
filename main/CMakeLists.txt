@@ -1,4 +1,4 @@
-set(MAIN_SRCS "main.c" "zb_ot_bridge.c" "ot_bridge.c" "zcl_utility.c" "ot_serial_harness.c")
+set(MAIN_SRCS "main.c" "zb_ot_bridge.c" "ot_bridge.c" "ot_zcl_route.c" "zcl_utility.c" "ot_serial_harness.c")
 
 idf_component_register(
     SRCS ${MAIN_SRCS}
