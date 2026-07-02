@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "okf-tools"
+version = "0.1.0"
+description = "Validate, index, and export Open Knowledge Format bundles"
+requires-python = ">=3.10"
+dependencies = [
+    "PyYAML>=6.0",
+]
+
+[project.scripts]
+okf = "okf.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["okf*"]

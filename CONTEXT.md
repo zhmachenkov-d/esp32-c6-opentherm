@@ -35,3 +35,21 @@ _Avoid_: Room setpoint, target temperature (without qualifier)
 **WeAct ESP32-C6-A**:
 The physical development board for this project; pin-compatible with Espressif ESP32-C6-DevKitC-1.
 _Avoid_: DevKit, board, ESP32-C6 (when meaning this specific hardware)
+
+## Knowledge system
+
+**Concept**:
+A single unit of knowledge in the project's compiled knowledge bundle, represented as one markdown file with YAML frontmatter and a markdown body.
+_Avoid_: Page, note, article (when the OKF identity matters)
+
+**Knowledge bundle**:
+The compiled, agent-readable directory tree under `knowledge/` that contains concepts plus `index.md` and `log.md`.
+_Avoid_: Wiki, docs folder, vault
+
+**Raw source**:
+An immutable input document under `wiki/raw/` that the agent reads and compiles into one or more **Concepts**.
+_Avoid_: Concept, bundle entry, article
+
+**Playbook**:
+A project-owned **Concept** in `knowledge/bridge/` that documents firmware behavior, mappings, or procedures synthesized from reference concepts.
+_Avoid_: SOP, runbook (when meaning this OKF type)
