@@ -4,7 +4,7 @@ OpenTherm-to-Zigbee bridge for the WeAct ESP32-C6-A. The firmware joins an exist
 
 ## Hardware
 
-- [WeAct ESP32-C6-A](wiki/articles/esp32/weact-esp32-c6-a-dev-board.md) (or ESP32-C6-DevKitC-1)
+- [WeAct ESP32-C6-A](knowledge/esp32/weact-esp32-c6-a.md) (or ESP32-C6-DevKitC-1)
 - OpenTherm adapter wired to **GPIO12** (in) and **GPIO13** (out) by default
 - OpenTherm two-wire connection to a compatible boiler
 
@@ -64,4 +64,5 @@ With the adapter and boiler connected:
 ## Docs
 
 - [CONTEXT.md](CONTEXT.md) — domain glossary
-- [wiki/articles/](wiki/articles/index.md) — OpenTherm, Zigbee, and board references
+- [knowledge/](knowledge/index.md) — OKF knowledge bundle (OpenTherm, Zigbee, ESP32, bridge playbooks)
+- [docs/adr/0001-okf-knowledge-system.md](docs/adr/0001-okf-knowledge-system.md) — knowledge system architecture
