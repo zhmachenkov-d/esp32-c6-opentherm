@@ -41,7 +41,7 @@ typedef struct {
 
 extern const ot_catalog_entry_t ot_data_catalog[128];
 
-const ot_catalog_entry_t *ot_catalog_get(uint8_t id);
+const ot_catalog_entry_t *ot_data_catalog_get(uint8_t id);
 bool ot_catalog_is_writable(uint8_t id);
 
 #ifdef __cplusplus

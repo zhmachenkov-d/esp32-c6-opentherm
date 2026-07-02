@@ -17,7 +17,10 @@
         "idf.toolsPath": "/opt/esp",
         "idf.gitPath": "/usr/bin/git",
         "idf.showOnboardingOnInit": false,
-        "idf.port": "/dev/ttyACM0"
+        "idf.port": "/dev/ttyACM0",
+        "clangd.arguments": [
+          "--compile-commands-dir=${containerWorkspaceFolder}/build"
+        ]
       },
       "extensions": [
         "espressif.esp-idf-extension",

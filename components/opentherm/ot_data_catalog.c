@@ -137,7 +137,7 @@ const ot_catalog_entry_t ot_data_catalog[128] = {
     OT_ROW(127, OT_TYPE_U8, OT_POLL_SLOW, false, OT_ROUTE_SPILLOVER),
 };
 
-const ot_catalog_entry_t *ot_catalog_get(uint8_t id)
+const ot_catalog_entry_t *ot_data_catalog_get(uint8_t id)
 {
     return &ot_data_catalog[id];
 }

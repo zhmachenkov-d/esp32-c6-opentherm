@@ -10,7 +10,6 @@
 
 #include "esp_check.h"
 #include "esp_log.h"
-#include "nvs_flash.h"
 
 #include "ha/esp_zigbee_ha_standard.h"
 #include "zcl_utility.h"
@@ -222,7 +221,6 @@ void zb_thermostat_ed_start(void)
         .host_config = ESP_ZB_DEFAULT_HOST_CONFIG(),
     };
 
-    ESP_ERROR_CHECK(nvs_flash_init());
     ESP_ERROR_CHECK(esp_zb_platform_config(&config));
     xTaskCreate(esp_zb_task, "Zigbee_main", 4096, NULL, 5, NULL);
 }

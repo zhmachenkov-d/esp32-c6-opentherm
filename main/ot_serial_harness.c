@@ -9,10 +9,12 @@
 #include <string.h>
 
 #include "esp_console.h"
+#include "esp_err.h"
 #include "esp_log.h"
 
 #include "opentherm_wrapper.h"
 #include "ot_data_catalog.h"
+#include "ot_discover.h"
 
 static const char *TAG = "OT_CLI";
 
@@ -138,9 +140,56 @@ static int cmd_ot_cat(int argc, char **argv)
         return 1;
     }
 
-    const ot_catalog_entry_t *entry = ot_catalog_get((uint8_t)id);
+    const ot_catalog_entry_t *entry = ot_data_catalog_get((uint8_t)id);
     printf("id=%u type=%s tier=%s writable=%d route=%s\n", entry->id, type_to_string(entry->type),
            tier_to_string(entry->poll_tier), entry->writable ? 1 : 0, route_to_string(entry->zcl_route));
+    return 0;
+}
+
+static int cmd_ot_discover(int argc, char **argv)
+{
+    (void)argc;
+    (void)argv;
+
+    ot_runtime_catalog_t catalog;
+    const esp_err_t err = ot_discover_all(&catalog);
+    if (err != ESP_OK) {
+        printf("discover failed: %s\n", esp_err_to_name(err));
+        return 1;
+    }
+
+    printf("discover count=%u\n", catalog.count);
+    for (uint8_t i = 0; i < catalog.count; i++) {
+        printf("  id=%u\n", catalog.ids[i]);
+    }
+    return 0;
+}
+
+static int cmd_ot_catalog(int argc, char **argv)
+{
+    (void)argc;
+    (void)argv;
+
+    const ot_runtime_catalog_t *catalog = ot_catalog_get();
+    printf("has_cache=%d validated=%d count=%u saved_at=%lu s\n", ot_catalog_has_cache() ? 1 : 0,
+           ot_catalog_is_validated() ? 1 : 0, catalog->count, (unsigned long)catalog->saved_at_s);
+    for (uint8_t i = 0; i < catalog->count; i++) {
+        printf("  id=%u\n", catalog->ids[i]);
+    }
+    return 0;
+}
+
+static int cmd_ot_catalog_clear(int argc, char **argv)
+{
+    (void)argc;
+    (void)argv;
+
+    const esp_err_t err = ot_catalog_clear();
+    if (err != ESP_OK) {
+        printf("catalog clear failed: %s\n", esp_err_to_name(err));
+        return 1;
+    }
+    printf("catalog cleared\n");
     return 0;
 }
 
@@ -169,6 +218,30 @@ static void register_ot_commands(void)
         .func = &cmd_ot_cat,
     };
     ESP_ERROR_CHECK(esp_console_cmd_register(&ot_cat_cmd));
+
+    const esp_console_cmd_t ot_discover_cmd = {
+        .command = "ot_discover",
+        .help = "Blocking full discover of IDs 0-127",
+        .hint = NULL,
+        .func = &cmd_ot_discover,
+    };
+    ESP_ERROR_CHECK(esp_console_cmd_register(&ot_discover_cmd));
+
+    const esp_console_cmd_t ot_catalog_cmd = {
+        .command = "ot_catalog",
+        .help = "Show runtime discovery catalog",
+        .hint = NULL,
+        .func = &cmd_ot_catalog,
+    };
+    ESP_ERROR_CHECK(esp_console_cmd_register(&ot_catalog_cmd));
+
+    const esp_console_cmd_t ot_catalog_clear_cmd = {
+        .command = "ot_catalog_clear",
+        .help = "Erase NVS discovery catalog",
+        .hint = NULL,
+        .func = &cmd_ot_catalog_clear,
+    };
+    ESP_ERROR_CHECK(esp_console_cmd_register(&ot_catalog_clear_cmd));
 }
 
 void ot_serial_harness_init(void)
@@ -182,7 +255,7 @@ void ot_serial_harness_init(void)
 
     register_ot_commands();
     ESP_ERROR_CHECK(esp_console_start_repl(repl));
-    ESP_LOGI(TAG, "OpenTherm serial harness ready (ot_read, ot_write, ot_cat)");
+    ESP_LOGI(TAG, "OpenTherm serial harness ready (ot_read, ot_write, ot_cat, ot_discover, ot_catalog, ot_catalog_clear)");
 }
 
 #else
