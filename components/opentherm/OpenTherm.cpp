@@ -272,7 +272,7 @@ OpenThermMessageID OpenTherm::getDataID(unsigned long frame)
     return static_cast<OpenThermMessageID>((frame >> 16) & 0xFF);
 }
 
-unsigned long OpenTherm::buildRequest(OpenThermMessageType type, OpenThermMessageID id, unsigned int data)
+unsigned long OpenTherm::buildRequest(OpenThermMessageType type, uint8_t id, unsigned int data)
 {
     unsigned long request = data;
     if (type == OpenThermMessageType::WRITE_DATA) {
@@ -283,6 +283,11 @@ unsigned long OpenTherm::buildRequest(OpenThermMessageType type, OpenThermMessag
         request |= (1ul << 31);
     }
     return request;
+}
+
+unsigned long OpenTherm::buildRequest(OpenThermMessageType type, OpenThermMessageID id, unsigned int data)
+{
+    return buildRequest(type, static_cast<uint8_t>(id), data);
 }
 
 bool OpenTherm::isValidResponse(unsigned long resp)

@@ -14,4 +14,11 @@ config OT_OUT_GPIO
     help
         GPIO connected to the OpenTherm adapter output.
 
+config OT_SERIAL_HARNESS
+    bool "Enable OpenTherm serial harness (ot_read/ot_write/ot_cat)"
+    default n
+    help
+        Register esp_console commands for manual OpenTherm READ/WRITE testing.
+        Uses the default UART console REPL.
+
 endmenu
