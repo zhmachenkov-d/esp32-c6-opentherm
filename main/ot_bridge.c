@@ -10,7 +10,8 @@
 #include "zcl/esp_zigbee_zcl_thermostat.h"
 
 #include "opentherm_wrapper.h"
-#include "zb_thermostat_ed.h"
+#include "ot_discover.h"
+#include "zb_ot_bridge.h"
 
 static const char *TAG = "OT_BRIDGE";
 
@@ -80,8 +81,12 @@ static void ot_poll_task(void *arg)
 {
     (void)arg;
 
-    /* Allow Zigbee stack to start before first OT traffic. */
-    vTaskDelay(pdMS_TO_TICKS(3000));
+    while (!ot_catalog_is_validated()) {
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+    while (!zb_ot_bridge_ot_precheck_done()) {
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
 
     while (true) {
         opentherm_process();
@@ -97,8 +102,8 @@ static void ot_poll_task(void *arg)
             if (temp_centi_c != s_last_reported_temp_centi_c) {
                 s_last_reported_temp_centi_c = temp_centi_c;
                 ESP_LOGI(TAG, "Tboiler %.2f C -> LocalTemperature", t_boiler);
-                if (zb_thermostat_ed_is_joined()) {
-                    if (zb_thermostat_ed_report_local_temperature(temp_centi_c) != ESP_OK) {
+                if (zb_ot_bridge_is_joined()) {
+                    if (zb_ot_bridge_report_local_temperature(temp_centi_c) != ESP_OK) {
                         ESP_LOGW(TAG, "Failed to report LocalTemperature");
                     }
                 }

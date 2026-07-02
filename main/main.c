@@ -4,7 +4,7 @@
 #include "opentherm_wrapper.h"
 #include "ot_bridge.h"
 #include "ot_discover.h"
-#include "zb_thermostat_ed.h"
+#include "zb_ot_bridge.h"
 #if CONFIG_OT_SERIAL_HARNESS
 #include "ot_serial_harness.h"
 #endif
@@ -22,7 +22,7 @@ void app_main(void)
     ESP_ERROR_CHECK(ot_catalog_init());
     ESP_ERROR_CHECK(ot_catalog_start());
     ot_bridge_start();
-    zb_thermostat_ed_start();
+    zb_ot_bridge_start();
 
 #if CONFIG_OT_SERIAL_HARNESS
     ot_serial_harness_init();
