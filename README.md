@@ -12,12 +12,12 @@ OpenTherm-to-Zigbee bridge for the WeAct ESP32-C6-A. The firmware joins an exist
 
 Before the first dev container rebuild (or when setting up a new clone):
 
-1. `cp .env.example .env`
-2. Set `GH_TOKEN` in `.env` (GitHub personal access token with repo scope)
+1. `cp .env.example .env` (file required; secret values optional)
+2. Set `GH_TOKEN` in `.env` if you use the GitHub CLI (personal access token with repo scope)
 3. Rebuild the dev container (**Dev Containers: Rebuild Container**)
-4. Verify: `gh auth status` and `git push`
+4. Verify: `gh api user -q .login` (when `GH_TOKEN` is set); `git push` uses SSH
 
-The `.env` file is gitignored; never commit secrets.
+Rebuild after any `.env` change. The file is gitignored; never commit secrets.
 
 ## Build
 
