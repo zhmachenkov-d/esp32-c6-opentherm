@@ -16,6 +16,14 @@ _Avoid_: Furnace, heater (generic)
 A reproducible Linux development environment for this repo, built from Espressif's official ESP-IDF Docker image.
 _Avoid_: Docker setup, dev environment, container config
 
+**Dev secrets file** (`.env`):
+A gitignored, local-only file at the repo root holding secrets consumed by the dev container (currently `GH_TOKEN` for GitHub CLI). The file must exist before a dev container rebuild; secret values inside it are optional. Non-secret dev settings belong in committed config, not here. Changes take effect only after a full dev container rebuild. Git authentication uses host SSH keys, not this file.
+_Avoid_: Environment config, local overrides (when meaning non-secrets)
+
+**Dev secrets template** (`.env.example`):
+The committed schema for the dev secrets file: every secret key the dev container reads must appear here with a comment. Onboarding copies it to `.env`.
+_Avoid_: Example config, env sample
+
 **ESP-IDF**:
 Espressif's IoT firmware framework used to build, flash, and monitor firmware for this project. Version 5.4 in the dev container.
 _Avoid_: SDK, IDF (alone without version context)
