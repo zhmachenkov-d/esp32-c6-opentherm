@@ -27,7 +27,7 @@
     }
   },
   "mounts": [
-      "source=${localEnv:HOME}/.ssh,target=/ssh,type=bind"
+      "source=${localEnv:HOME}/.ssh,target=/ssh,type=bind,consistency=cached"
   ],
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "runArgs": [
@@ -36,8 +36,5 @@
     "--volume=/etc/timezone:/etc/timezone:ro",
     "--env-file",
     "${localWorkspaceFolder}/.env"
-  ],
-  "mounts": [
-    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
   ]
 }
